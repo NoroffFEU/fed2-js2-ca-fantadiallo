@@ -1,17 +1,17 @@
-import { login } from "../../api/auth/login"; // Adjust the path as necessary
+import { login } from "../../api/auth/login"; 
 
 export async function onLogin(event) {
-  event.preventDefault(); // Prevent default form submission
-  const form = event.target; // Get the form that triggered the event
-  const formData = new FormData(form); // Extract form data
-  const data = Object.fromEntries(formData); // Convert to object
+  event.preventDefault(); 
+  const form = event.target; 
+  const formData = new FormData(form); 
+  const data = Object.fromEntries(formData); 
 
   try {
-    const profile = await login(data); // Call the imported login function
+    const profile = await login(data); 
     console.log("Login successful", posts);
-    window.location.href = "/posts"; // Redirect to the user's profile
+    window.location.href = "/posts"; 
   } catch (error) {
     console.error("Error during login:", error);
-    alert("Login failed. Please try again."); // Show error message
+    alert("Login failed. Please try again."); 
   }
 }

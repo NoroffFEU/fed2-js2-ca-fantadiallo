@@ -11,7 +11,23 @@
     <h1>Profile</h1>
 
     <form name="updateProfile">
-      <button>Update Profile</button>
+      <div>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required />
+      </div>
+    
+      <div>
+        <label for="avatar">Avatar URL</label>
+        <input id="avatar" name="avatar" type="url" placeholder="Enter your avatar URL" />
+      </div>
+    
+      <div>
+        <label for="banner">Banner URL</label>
+        <input id="banner" name="banner" type="url" placeholder="Enter your banner URL" />
+      </div>
+    
+      <button type="submit">Update Profile</button>
     </form>
+    
   </body>
 </html>

@@ -1,18 +1,18 @@
-import { API_BASE, API_POSTS } from "../constants"; 
+import { API_SOCIAL_POSTS } from "../constants";
 
 export async function deletePost(id) {
-  const token = localStorage.getItem("token"); 
+  const token = localStorage.getItem("token");
   
-  const response = await fetch(`${API_BASE}${API_POSTS}/${id}`, {
+  const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`, 
+      Authorization: `Bearer ${token}`,
     },
   });
 
   if (response.ok) {
-    return true; 
+    return true;
   }
 
   const errorResponse = await response.json();

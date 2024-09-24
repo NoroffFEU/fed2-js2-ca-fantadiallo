@@ -1,15 +1,15 @@
-import { API_BASE, API_POSTS } from "../constants"; // Adjust the path as necessary
+import { API_SOCIAL_POSTS } from "../constants";
 
 export async function updatePost(id, { title, body, tags, media }) {
-  const token = localStorage.getItem("token"); 
+  const token = localStorage.getItem("token");
 
-  const response = await fetch(`${API_BASE}${API_POSTS}/${id}`, {
-    method: "PUT", 
+  const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`, 
+      Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ title, body, tags, media }), 
+    body: JSON.stringify({ title, body, tags, media }),
   });
 
   if (response.ok) {

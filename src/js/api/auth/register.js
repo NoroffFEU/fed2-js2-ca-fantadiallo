@@ -1,27 +1,20 @@
-import { API_AUTH, API_AUTH_REGISTER } from "../constants"; // Adjust the path as necessary
+import { API_AUTH_REGISTER } from "../constants"; // Adjust the path as necessary
 import { API_BASE } from "../constants";
 import { headers } from "../headers"; // Import headers function
 
-export async function register({
-  name,
-  email,
-  password,
-  bio,
-  banner,
-  avatar,
-}) {
-  const response = await fetch(API_BASE + API_AUTH + API_AUTH_REGISTER, { // Use API_AUTH_REGISTER directly
+export async function register({ name, email, password }) {
+  const response = await fetch(API_BASE + API_AUTH_REGISTER, {
     headers: {
-      ...headers(), // Spread the headers function to include the necessary headers
-      "Content-Type": "application/json", // Ensure Content-Type is included
+      "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify({ name, email, password, bio, banner, avatar }), // Ensure proper spacing
+    body: JSON.stringify({ name, email, password }), 
   });
 
   if (response.ok) {
-    return await response.json(); // Successfully registered
+    return await response.json(); 
   }
+  console.error();
 
-  throw new Error("Could not register the account"); // Handle errors
+  throw new Error("Could not register the account");
 }
